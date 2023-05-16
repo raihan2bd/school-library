@@ -3,6 +3,7 @@ require_relative 'nameable'
 # The NameDecorator class decorates a Nameable object.
 class NameDecorator < Nameable
   def initialize(nameable)
+    super()
     @nameable = nameable
   end
 

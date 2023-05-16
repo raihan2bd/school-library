@@ -7,6 +7,7 @@ class Person < Nameable
 
   # Initialize the class instance varibales
   def initialize(age, name = 'Unknown', parent_permission: true)
+    super()
     @id = rand(1..9999)
     @name = name
     @age = age
