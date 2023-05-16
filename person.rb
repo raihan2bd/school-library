@@ -1,5 +1,7 @@
+require_relative('nameable')
+
 # Person is a parrent which holds age, name and parent_permission
-class Person
+class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id
 
@@ -23,6 +25,10 @@ class Person
     return true if of_age? || @parent_permission
 
     false
+  end
+
+  def correct_name
+    @name
   end
 
   # Define the "of_age?" to a private method
