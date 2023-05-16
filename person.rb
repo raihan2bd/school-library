@@ -1,4 +1,6 @@
 require_relative('nameable')
+require_relative('capitalize_decorator')
+require_relative('trimmer_decorator')
 
 # Person is a parrent which holds age, name and parent_permission
 class Person < Nameable
@@ -36,6 +38,14 @@ class Person < Nameable
   private :of_age?
 end
 
-# create a instense from the Person class using random value
-person1 = Person.new(18, 'Jhon')
-p person1.can_use_services? # it will print true
+# Check if my code successfully decorates my person object
+person = Person.new(22, 'maximilianus')
+puts person.correct_name # It will print 'maximilianus'
+
+# Create a CapitalizeDecorator instance and decorate the person object
+capitalized_person = CapitalizeDecorator.new(person)
+puts capitalized_person.correct_name # It will print 'Maximilianus'
+
+# Create a TrimmerDecorator instance and decorate the capitalizedPerson object
+capitalized_trimmed_person = TrimmerDecorator.new(capitalizedPerson)
+puts capitalized_trimmed_person.correct_name # It will print 'Maximilian'
