@@ -1,6 +1,6 @@
 # Represents a book object with a title, an author, and associated rentals
 class Book
-  attr_accessor :title, :author
+  attr_accessor :title, :author, :rentals
 
   # Initializes a new instance of the Book class with the given title and author.
   def initialize(title, author)
