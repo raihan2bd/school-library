@@ -4,7 +4,7 @@ require_relative('trimmer_decorator')
 
 # Person is a parrent which holds age, name and parent_permission
 class Person < Nameable
-  attr_accessor :name, :age
+  attr_accessor :name, :age, :rentals
   attr_reader :id
 
   # Initialize the class instance varibales
@@ -14,6 +14,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
   end
 
   # of_age checks the person age is greater than 18 or not
@@ -32,6 +33,11 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  # This method is helps to add a new rental to the person rentals.
+  def add_rental(book, date)
+    Rental.new(date, book, self)
   end
 
   # Define the "of_age?" to a private method
