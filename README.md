@@ -38,8 +38,8 @@ I'm developing a school library app called "School Library". It consists of clas
 
 ### Key Features <a name="key-features"></a>
 
-- **Users can create and manage multiple student and teacher instances using the Student and Teacher classes.**
-- **The methods provided by these classes enable efficient management of student and teacher data within the school library app.**
+- **Users can create and manage multiple student, teacher, book, and rental instances using CLI**
+- **The methods provided by these classes enable efficient management of student, teacher, book, and rentals data within the school library app.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -61,14 +61,8 @@ gem install
 ```
 - To run this project on your local machine `Enter` the below command
 ```
-ruby student.rb
+ruby main.rb
 ```
-or
-```
-ruby teacher.rb
-```
-
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
