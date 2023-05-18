@@ -1,7 +1,6 @@
 # Represents a rental of a book by a person on a specific date
 class Rental
-  attr_accessor :date
-  attr_reader :person, :book
+  attr_accessor :date, :person, :book
 
   # Initializes a new instance of the Rental class with the given date, person, and book.
   def initialize(date, person, book)
