@@ -4,7 +4,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Project Demo](#project-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -32,9 +31,6 @@ I'm developing a school library app called "School Library". It consists of clas
   <ul>
     <li><a href="https://www.ruby-lang.org/">Ruby</a></li>
   </ul>
-
-## 🚀 Project Demo <a name="project-demo"><a>
-`Project demo isn't available`
 
 ### Key Features <a name="key-features"></a>
 
@@ -66,13 +62,19 @@ ruby main.rb
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 👥 Author <a name="authors"></a>
+## 👥 Authors <a name="authors"></a>
 
 👤 **Abu Raihan**
 
 - GitHub: [@raihan2bd](https://github.com/raihan2bd)
 - Twitter: [@raihan2bd](https://twitter.com/raihan2bd)
 - LinkedIn: [raihan2bd](https://linkedin.com/in/raihan2bd)
+
+👤  Isaac Gakure Wanyoike
+
+ - GitHub: [@githubhandle](https://github.com/gaks1)
+ - Twitter: [@twitterhandle](https://twitter.com/bopplov)
+-  LinkedIn: [LinkedIn](https://www.linkedin.com/in/isaac-wanyoike-1841a8172/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

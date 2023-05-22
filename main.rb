@@ -9,13 +9,20 @@ class Main
   # Prints the menu options
   def print_menu
     puts 'Please choose an option by entering a number:'
-    puts '1 - List all books'
-    puts '2 - List all people'
-    puts '3 - Create a person'
-    puts '4 - Create a book'
-    puts '5 - Create a rental'
-    puts '6 - List all rentals for a given person id'
-    puts '7 - Exit'
+
+    menu_list = {
+      '1': 'List all books',
+      '2': 'List all people',
+      '3': 'Create a person',
+      '4': 'Create a book',
+      '5': 'Create a rental',
+      '6': 'List all rentals for a given person id',
+      '7': 'Exit'
+    }
+
+    menu_list.each do |index, value|
+      puts "#{index} - #{value}"
+    end
   end
 
   # Executes the selected menu action
