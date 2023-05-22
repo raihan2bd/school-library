@@ -38,48 +38,35 @@ class App
 
   # Creates a person (student or teacher) based on user input
   def create_person
+    # Prompt the user to choose between creating a student or a teacher
     puts 'Do you want to create a student (1) or a teacher(2)?....'
     option = gets.chomp
 
+    # Prompt the user to get user name and age
+    print 'Name:'
+    name = gets.chomp
+    print 'Age:'
+    age = gets.chomp.to_i
+
     case option
     when '1'
-      create_student
+      print 'Has Parent permission? [Y/N]:'
+      parent_permission = gets.chomp.downcase
+
+      # Create a new student object with the provided information
+      student = Student.new(@classroom, age, name, parent_permission: parent_permission)
+      @people << student
+      puts 'Student created successfully'
     when '2'
-      create_teacher
+      print 'Specialization:'
+      specialization = gets.chomp
+
+      # Create a new teacher object with the provided information
+      @people << Teacher.new(specialization, age, name)
+      puts 'Teacher created successfully'
     else
       puts 'Invalid input! Please type 1 or 2'
     end
-  end
-
-  # Creates a student based on user input
-  def create_student
-    print 'Name:'
-    name = gets.chomp
-
-    print 'Age:'
-    age = gets.chomp.to_i
-
-    print 'Has Parent permission? [Y/N]:'
-    parent_permission = gets.chomp.downcase
-
-    student = Student.new(@classroom, age, name, parent_permission: parent_permission == 'y')
-    @people << student
-    puts 'Student created successfully'
-  end
-
-  # Creates a teacher based on user input
-  def create_teacher
-    print 'Name:'
-    name = gets.chomp
-
-    print 'Age:'
-    age = gets.chomp.to_i
-
-    print 'Specialization:'
-    specialization = gets.chomp
-
-    @people << Teacher.new(specialization, age, name)
-    puts 'Teacher created successfully'
   end
 
   # Creates a book based on user input
