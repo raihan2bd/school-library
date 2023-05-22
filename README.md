@@ -4,7 +4,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Project Demo](#project-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -32,9 +31,6 @@ I'm developing a school library app called "School Library". It consists of clas
   <ul>
     <li><a href="https://www.ruby-lang.org/">Ruby</a></li>
   </ul>
-
-## 🚀 Project Demo <a name="project-demo"><a>
-`Project demo isn't available`
 
 ### Key Features <a name="key-features"></a>
 
