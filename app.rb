@@ -11,7 +11,7 @@ class App
   def initialize
     @people = read_people
     @books = read_books
-    @rentals = []
+    @rentals = read_rentals
     @classroom = Classroom.new('Grade 10')
   end
   def read_people
@@ -51,6 +51,23 @@ class App
     return load_books
 
   end
+
+  def read_rentals
+    return [] unless File.exist?('rentals.json')
+
+    file = File.open('rentals.json')
+    new_rentals = File.read(file)
+    json_rentals = JSON.parse(new_rentals)
+    load_rentals = []
+    json_rentals.each do |rental|
+      rental_person = @people.select { |person| person.id == rental['person_id'] }
+      rental_book = @books.select { |book| book.title == rental['book_title'] }
+      new_rental = Rental.new(rental['date'], rental_person[0], rental_book[0])
+      load_rentals << new_rental
+    end
+    file.close
+    return load_rentals
+  end
   # save data into files
   def save
     new_people = @people.each_with_index.map do | person, index|
@@ -67,6 +84,12 @@ class App
     end
     json_book = JSON.generate(new_book)
     File.write('./books.json', json_book)
+
+    new_rental = @rentals.each_with_index.map do | rental, index|
+      { book_title: rental.book.title, person_id: rental.person.id, date: rental.date, index: index }
+    end
+    json_rental = JSON.generate(new_rental)
+    File.write('./rentals.json', json_rental)
   end
   # Lists all books in the library
   def list_all_books
