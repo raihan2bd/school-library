@@ -6,7 +6,6 @@ require_relative('trimmer_decorator')
 class Person < Nameable
   attr_accessor :name, :age, :parent_permission, :rentals, :id
 
-
   # Initialize the class instance varibales
   def initialize(age, name = 'Unknown', parent_permission: true)
     super()
