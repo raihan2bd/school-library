@@ -2,6 +2,8 @@ require_relative 'person'
 
 # The Teacher class represents a teacher who inherits from the Person class.
 class Teacher < Person
+  attr_accessor :specialization
+
   def initialize(specialization, age, name = 'Unknown', parent_permission: true)
     super(age, name, parent_permission: parent_permission)
     @specialization = specialization

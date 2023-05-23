@@ -4,8 +4,7 @@ require_relative('trimmer_decorator')
 
 # Person is a parrent which holds age, name and parent_permission
 class Person < Nameable
-  attr_accessor :name, :age, :parent_permission, :rentals
-  attr_reader :id
+  attr_accessor :name, :age, :parent_permission, :rentals, :id
 
   # Initialize the class instance varibales
   def initialize(age, name = 'Unknown', parent_permission: true)

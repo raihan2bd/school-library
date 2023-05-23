@@ -53,6 +53,7 @@ class Main
       option = gets.chomp
       if option == '7'
         puts 'Thank you for using our library ¯\^-^/¯'
+        @app.save
         return
       end
       take_menu_action(option)

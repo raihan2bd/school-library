@@ -1,17 +1,28 @@
+require 'json'
 require './person'
 require './student'
 require './teacher'
 require './classroom'
 require './book'
 require './rental'
-
+require './data_saver'
+require './data_loader'
 # App class for managing the school library application
 class App
+  attr_accessor :people, :books, :rentals, :classroom
+
   def initialize
-    @people = []
-    @books = []
-    @rentals = []
+    @people = DataLoader.read_people
+    @books = DataLoader.read_books
+    @rentals = DataLoader.read_rentals(@people, @books)
     @classroom = Classroom.new('Grade 10')
+  end
+
+  # save data into files
+  def save
+    DataSaver.save_people(@people)
+    DataSaver.save_books(@books)
+    DataSaver.save_rentals(@rentals)
   end
 
   # Lists all books in the library
@@ -41,18 +52,23 @@ class App
     # Prompt the user to choose between creating a student or a teacher
     puts 'Do you want to create a student (1) or a teacher(2)?....'
     option = gets.chomp
-
     # Prompt the user to get user name and age
     print 'Name:'
     name = gets.chomp
     print 'Age:'
     age = gets.chomp.to_i
-
     case option
     when '1'
       print 'Has Parent permission? [Y/N]:'
       parent_permission = gets.chomp.downcase
-
+      case parent_permission
+      when 'y'
+        parent_permission = true
+      when 'n'
+        parent_permission = false
+      else
+        puts 'Invalid input! Please type y or n'
+      end
       # Create a new student object with the provided information
       student = Student.new(@classroom, age, name, parent_permission: parent_permission)
       @people << student
@@ -60,7 +76,6 @@ class App
     when '2'
       print 'Specialization:'
       specialization = gets.chomp
-
       # Create a new teacher object with the provided information
       @people << Teacher.new(specialization, age, name)
       puts 'Teacher created successfully'
@@ -73,12 +88,9 @@ class App
   def create_book
     print 'Title: '
     title = gets.chomp
-
     print 'Author: '
     author = gets.chomp
-
     @books << Book.new(title, author)
-
     puts 'Book created successfully'
   end
 
@@ -88,19 +100,14 @@ class App
     @books.each_with_index do |book, index|
       puts "#{index}) Title: #{book.title}, Author: #{book.author}"
     end
-
     book_id = gets.chomp.to_i
-
     puts 'Select a person from the following list by number (not ID)'
     @people.each_with_index do |person, index|
       puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
-
     person_id = gets.chomp.to_i
-
     print 'Date: '
     date = gets.chomp
-
     @rentals << Rental.new(date, @people[person_id], @books[book_id])
     puts 'Rental created successfully'
   end
@@ -109,9 +116,7 @@ class App
   def list_rentals
     print 'ID of person: '
     id = gets.chomp.to_i
-
     rentals = @rentals.filter { |rental| rental.person.id == id }
-
     puts 'Rentals:'
     rentals.each do |rental|
       puts "Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
