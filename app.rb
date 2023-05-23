@@ -10,7 +10,7 @@ class App
   attr_accessor :people, :books, :rentals, :classroom
   def initialize
     @people = read_people
-    @books = []
+    @books = read_books
     @rentals = []
     @classroom = Classroom.new('Grade 10')
   end
@@ -35,6 +35,22 @@ class App
     file.close
     return load_people
   end
+#load data from books json file
+  def read_books
+    return [] unless File.exist?('books.json')
+
+    file = File.open('books.json')
+    new_books = File.read(file)
+    json_books = JSON.parse(new_books)
+    load_books = []
+    json_books.each do |book|
+      new_book = Book.new(book['title'], book['author'])
+      load_books << new_book
+    end
+    file.close
+    return load_books
+
+  end
   # save data into files
   def save
     new_people = @people.each_with_index.map do | person, index|
@@ -45,7 +61,12 @@ class App
     end
     json_people = JSON.generate(new_people)
     File.write('./people.json', json_people)
-    puts "file written"
+
+    new_book = @books.each_with_index.map do | book, index|
+      { title: book.title, author: book.author, index: index }
+    end
+    json_book = JSON.generate(new_book)
+    File.write('./books.json', json_book)
   end
   # Lists all books in the library
   def list_all_books
