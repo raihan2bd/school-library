@@ -14,11 +14,3 @@ class Teacher < Person
     true
   end
 end
-
-# create an instance of the Teacher class using random values
-teacher1 = Teacher.new('Mathematics', 35, 'Mr. Smith')
-
-# Accessing attributes of the teacher1 instance
-puts teacher1.age # 35
-puts teacher1.name # Mr. Smith
-puts teacher1.can_use_services? # true

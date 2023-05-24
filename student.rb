@@ -14,8 +14,3 @@ class Student < Person
     '¯\(ツ)/¯'
   end
 end
-
-# create a instense from the Studen class using random value
-student1 = Student.new('myclass', 25, 'Jhon')
-puts student1.play_hooky # will print '¯\(ツ)/¯'
-p student1

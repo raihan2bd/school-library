@@ -12,7 +12,7 @@ class Book
   # Adds a rental for this book by the specified person on the given date.
   # Returns the created Rental object.
   def add_rental(person, date)
-    rental = Rental.new(date, self, person) # Create a new Rental object
+    rental = Rental.new(date, person, self) # Create a new Rental object
     @rentals << rental # Add the rental to the book's rentals collection
     rental # Return the created Rental object
   end
