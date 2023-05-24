@@ -1,6 +1,5 @@
 require_relative './helper_spec'
 
-
 describe CapitalizeDecorator do
   before :each do
     @person = Person.new 25, 'modulasoblangatas', parent_permission: true

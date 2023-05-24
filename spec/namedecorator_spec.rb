@@ -1,6 +1,5 @@
 require_relative './helper_spec'
 
-
 describe NameDecorator do
   before :each do
     @nameable = Nameable.new

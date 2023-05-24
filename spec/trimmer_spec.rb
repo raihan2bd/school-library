@@ -1,6 +1,5 @@
 require_relative './helper_spec'
 
-
 describe TrimmerDecorator do
   before :each do
     @person = Person.new 25, 'Modulasoblangatas', parent_permission: true

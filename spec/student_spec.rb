@@ -35,7 +35,6 @@ describe Student do
     end
   end
 
-
   describe 'play_hooky' do
     it 'call the play_hooky method and return string' do
       expect(@student.play_hooky).to eq('¯\(ツ)/¯')
