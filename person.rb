@@ -36,21 +36,9 @@ class Person < Nameable
 
   # This method is helps to add a new rental to the person rentals.
   def add_rental(book, date)
-    Rental.new(date, book, self)
+    Rental.new(date, self, book)
   end
 
   # Define the "of_age?" to a private method
   private :of_age?
 end
-
-# Check if my code successfully decorates my person object
-person = Person.new(22, 'maximilianus')
-puts person.correct_name # It will print 'maximilianus'
-
-# Create a CapitalizeDecorator instance and decorate the person object
-capitalized_person = CapitalizeDecorator.new(person)
-puts capitalized_person.correct_name # It will print 'Maximilianus'
-
-# Create a TrimmerDecorator instance and decorate the capitalizedPerson object
-capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-puts capitalized_trimmed_person.correct_name # It will print 'Maximilian'
