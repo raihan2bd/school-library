@@ -6,7 +6,7 @@ describe Student do
   end
 
   describe '#new' do
-    it 'takes two patameters and returns a Book object' do
+    it 'takes four patameters and returns a Student object' do
       expect(@student).to be_an_instance_of Student
     end
   end
